@@ -19,7 +19,7 @@ from multi_agent import (
 
 os.makedirs("audits", exist_ok=True)
 
-st.set_page_config(page_title="Agent Identity Demo", layout="wide", page_icon="🔐")
+st.set_page_config(page_title="Secure Delegate Demo", layout="wide", page_icon="🔐")
 
 st.markdown("""
 <style>
