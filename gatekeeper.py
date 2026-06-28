@@ -16,10 +16,11 @@ class Gatekeeper:
     Holds the expected plan and denies any request that deviates from it.
     """
 
-    def __init__(self, task: str, plan: list[dict], audit: AuditLog):
+    def __init__(self, task: str, plan: list[dict], audit: AuditLog, on_decision=None):
         self.task = task
         self.plan = plan
         self.audit = audit
+        self.on_decision = on_decision  # callback(tool, args, approved, reason) for UI
         self.steps_taken: list[dict] = []
         self._allowed_emails: set[str] | None = None  # populated after calendar read
 
@@ -35,6 +36,8 @@ class Gatekeeper:
         approved, reason = self._evaluate(tool_name, tool_args)
 
         self.audit.log(tool=tool_name, args=tool_args, approved=approved, reason=reason)
+        if self.on_decision:
+            self.on_decision(tool_name, tool_args, approved, reason)
 
         if not approved:
             raise PermissionDenied(reason)
