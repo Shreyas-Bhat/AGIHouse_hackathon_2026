@@ -58,7 +58,7 @@ The injection request traverses upward through the tree until some agent catches
 
 ### Live Demo — 8 Scenarios
 
-Run at: **[YOUR_STREAMLIT_URL]**
+Run at: **https://agihousehackathon2026-xm2cscvuutkftsbzgjqgcc.streamlit.app/**
 
 Each scenario shows a different point on the blast radius spectrum. Select from the sidebar and press Run.
 
