@@ -75,7 +75,7 @@ DESCRIPTIONS = {
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 
 with st.sidebar:
-    st.title("🔐 Agent Identity Demo")
+    st.title("🔐 Secure Delegate Demo")
     st.caption("Attenuated delegation · JIT credentials · Prompt injection detection")
     st.divider()
 
