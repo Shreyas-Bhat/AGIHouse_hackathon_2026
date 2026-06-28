@@ -21,6 +21,15 @@ os.makedirs("audits", exist_ok=True)
 
 st.set_page_config(page_title="Agent Identity Demo", layout="wide", page_icon="🔐")
 
+st.markdown("""
+<style>
+[data-testid="stSidebar"] .stButton { margin-top: -0.5rem; margin-bottom: -0.5rem; }
+[data-testid="stSidebar"] hr { margin-top: 0.4rem; margin-bottom: 0.4rem; }
+[data-testid="stSidebar"] h1 { margin-bottom: 0; padding-bottom: 0; }
+[data-testid="stSidebar"] .stCaption { margin-top: 0; }
+</style>
+""", unsafe_allow_html=True)
+
 # ── Scenarios ─────────────────────────────────────────────────────────────────
 
 SCENARIOS = {
@@ -70,6 +79,9 @@ with st.sidebar:
     st.caption("Attenuated delegation · JIT credentials · Prompt injection detection")
     st.divider()
 
+    run_btn = st.button("▶  Run Scenario", type="primary", use_container_width=True)
+    st.divider()
+
     scenario_name = st.selectbox("Scenario", list(SCENARIOS.keys()))
     st.info(DESCRIPTIONS[scenario_name])
     st.divider()
@@ -83,8 +95,6 @@ with st.sidebar:
 
     speed = st.slider("Animation speed (s / step)", 0.3, 2.0, 0.8, 0.1)
     show_plan = st.toggle("Show Planner-Verifier tab", value=True)
-    st.divider()
-    run_btn = st.button("▶  Run Scenario", type="primary", use_container_width=True)
 
 # ── Task line + tree — ABOVE THE FOLD ─────────────────────────────────────────
 
